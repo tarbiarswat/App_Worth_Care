@@ -35,12 +35,12 @@
         android:layout_width="320dp"
         android:layout_height="256dp"
         android:src="@drawable/vec_login_middle"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/login_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ic_loginhelp"
-        app:layout_constraintVertical_bias="0.113" />
+        app:layout_constraintVertical_bias="0.822" />
 
     <TextView
         android:id="@+id/login_title"
@@ -54,8 +54,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vec_login_middle"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.446" />
 
     <EditText
         android:id="@+id/user_email_pnumber"
@@ -167,37 +167,37 @@
         android:src="@drawable/worthcare_logo_bluebg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_fb_btn"
-        app:layout_constraintVertical_bias="0.089" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <TextView
         android:id="@+id/forgot_password_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_regular"
-        android:text="Forgot Details"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Forgot Details?"
         android:textColor="#484848"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageViewwc_logobluebg"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/login_fb_btn"
         app:layout_constraintTop_toBottomOf="@+id/login_fb_btn"
-        app:layout_constraintVertical_bias="0.222" />
+        app:layout_constraintVertical_bias="0.322" />
 
     <TextView
-        android:id="@+id/create_account_btn"
+        android:id="@+id/goto_regactivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_regular"
+        android:fontFamily="@font/montserrat_semibold"
         android:text="Create Account"
         android:textColor="#484848"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/forgot_password_btn"
         app:layout_constraintEnd_toEndOf="@+id/login_fb_btn"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageViewwc_logobluebg"
-        app:layout_constraintTop_toTopOf="@+id/forgot_password_btn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/forgot_password_btn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

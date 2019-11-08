@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "357401338074",
+    "firebase_url": "https://worth-care.firebaseio.com",
+    "project_id": "worth-care",
+    "storage_bucket": "worth-care.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357401338074:android:6092be9b341b99367785e3",
+        "android_client_info": {
+          "package_name": "com.worthcare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357401338074-3ma60j4dhd3a5i6id8jr7r3231qig1cp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.worthcare",
+            "certificate_hash": "910dc096586e488a7aa4177a51e976b0308be32a"
+          }
+        },
+        {
+          "client_id": "357401338074-69edcqrip7eemmr9mldo5kquqi2ekhk0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcyMyz10Y3ykf3PFu1NZkmePnJ5seLwt8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357401338074-69edcqrip7eemmr9mldo5kquqi2ekhk0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
