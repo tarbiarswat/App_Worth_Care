@@ -24,6 +24,17 @@ public class RegActivity extends AppCompatActivity {
     private ProgressBar loadingProgress;
     private Button regBtn;
     private FirebaseAuth mAuth;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            startActivity(new Intent(RegActivity.this, Dashboard.class));
+            updateUI();
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +48,8 @@ public class RegActivity extends AppCompatActivity {
         loadingProgress.setVisibility(View.INVISIBLE);
 
         mAuth = FirebaseAuth.getInstance();
+
+
 
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +77,8 @@ public class RegActivity extends AppCompatActivity {
 
     }
 
+
+
     private void createUserAccount(final String name, String email, String password)
     {
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -85,6 +100,7 @@ public class RegActivity extends AppCompatActivity {
         });
 
     }
+
 
     private void updateUserInfo(final String name, final FirebaseUser currentUser)
     {

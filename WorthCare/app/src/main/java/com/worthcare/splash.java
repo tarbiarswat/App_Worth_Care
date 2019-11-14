@@ -22,7 +22,7 @@ public class splash extends AppCompatActivity {
         Animation anim1 = AnimationUtils.loadAnimation(this,R.anim.splashanim);
         wc_title.startAnimation(anim1);
         wc_logo.startAnimation(anim1);
-        final Intent i = new Intent(this,LoginActivity.class);
+        final Intent i = new Intent(this,RegActivity.class);
         Thread time = new Thread()
         {
             public void run()
