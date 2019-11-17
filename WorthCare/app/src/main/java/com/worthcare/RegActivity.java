@@ -2,6 +2,7 @@ package com.worthcare;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,13 +18,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegActivity extends AppCompatActivity {
 
-    private EditText userFullname, userEmail, userPassword;
+    private EditText userFullname, userEmail, userPassword, userCPassword;
     private ProgressBar loadingProgress;
     private Button regBtn;
     private FirebaseAuth mAuth;
+    private Button next;
+    private ConstraintLayout primaryLayout1, primaryLayout2;
 
     @Override
     public void onStart() {
@@ -43,13 +48,25 @@ public class RegActivity extends AppCompatActivity {
         userFullname = findViewById(R.id.user_fullname);
         userEmail = findViewById(R.id.user_email_id);
         userPassword = findViewById(R.id.user_password);
+        userCPassword = findViewById(R.id.user_cpassword);
         loadingProgress = findViewById(R.id.reg_progress_bar);
         regBtn = findViewById(R.id.reg_btn);
         loadingProgress.setVisibility(View.INVISIBLE);
+        next = findViewById(R.id.next_btn);
+        primaryLayout1 = findViewById(R.id.formLayout1);
+        primaryLayout2 = findViewById(R.id.formLayout2);
 
         mAuth = FirebaseAuth.getInstance();
 
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                primaryLayout1.setVisibility(View.INVISIBLE);
+                primaryLayout2.setVisibility(View.VISIBLE);
 
+
+            }
+        });
 
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,13 +76,15 @@ public class RegActivity extends AppCompatActivity {
                 final String name = userFullname.getText().toString();
                 final String email = userEmail.getText().toString();
                 final String password = userPassword.getText().toString();
+                final String cpassword = userCPassword.getText().toString();
 
-                if(name.isEmpty() || email.isEmpty() || password.isEmpty())
+                if(name.isEmpty() || email.isEmpty() || password.isEmpty() || cpassword.isEmpty())
                 {
                     showDialogue("Please check all the fields");
                     regBtn.setVisibility(View.VISIBLE);
                     loadingProgress.setVisibility(View.INVISIBLE);
                 }
+
                 else
                 {
                     createUserAccount(name, email, password);
@@ -76,8 +95,6 @@ public class RegActivity extends AppCompatActivity {
         });
 
     }
-
-
 
     private void createUserAccount(final String name, String email, String password)
     {
@@ -129,4 +146,6 @@ public class RegActivity extends AppCompatActivity {
     {
         Toast.makeText(getApplicationContext(),message, Toast.LENGTH_LONG).show();
     }
+
+
 }
