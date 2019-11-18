@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +30,7 @@ public class RegActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Button next;
     private ConstraintLayout primaryLayout1, primaryLayout2;
+    private TextView login_btn;
 
     @Override
     public void onStart() {
@@ -55,8 +57,16 @@ public class RegActivity extends AppCompatActivity {
         next = findViewById(R.id.next_btn);
         primaryLayout1 = findViewById(R.id.formLayout1);
         primaryLayout2 = findViewById(R.id.formLayout2);
+        login_btn = findViewById(R.id.tv_login_btn);
 
         mAuth = FirebaseAuth.getInstance();
+
+        login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegActivity.this, LoginActivity.class));
+            }
+        });
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
