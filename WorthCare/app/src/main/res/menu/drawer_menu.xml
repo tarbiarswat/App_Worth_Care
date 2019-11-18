@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_medicine_reminder"
+            android:icon="@drawable/ic_medicine_reminder"
+            android:title="Medicine Reminder" />
+        <item
+            android:id="@+id/nav_consultation"
+            android:icon="@drawable/ic_consultation"
+            android:title="Consultation" />
+        <item
+            android:id="@+id/nav_bmi_calculator"
+            android:icon="@drawable/ic_bmi_calculator"
+            android:title="BMI Calculator" />
+        <item
+            android:id="@+id/nav_medicine_directory"
+            android:icon="@drawable/ic_medicine_directory"
+            android:title="Medicine Directory" />
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/ic_notification"
+            android:title="Notifications" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profile"
+            android:title="Profile" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="Settings" />
+        <item
+            android:id="@+id/nav_privacy_policy"
+            android:icon="@drawable/ic_privacy_policy"
+            android:title="Privacy Policy" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout" />
+    </group>
+    
+
+</menu>
