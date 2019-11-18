@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,13 +25,17 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegActivity extends AppCompatActivity {
 
-    private EditText userFullname, userEmail, userPassword, userCPassword;
+    private EditText userFullname, userEmail, userPassword, userCPassword, userHeight, userWeight;
+    private RadioButton genderMale, genderFemale;
+    String gender = "";
     private ProgressBar loadingProgress;
     private Button regBtn;
     private FirebaseAuth mAuth;
     private Button next;
     private ConstraintLayout primaryLayout1, primaryLayout2;
     private TextView login_btn;
+    FirebaseDatabase userDB; //Optional till 19Nov2019
+    DatabaseReference userDBRef;
 
     @Override
     public void onStart() {
@@ -47,10 +52,15 @@ public class RegActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg);
 
+        //Casting Views
         userFullname = findViewById(R.id.user_fullname);
         userEmail = findViewById(R.id.user_email_id);
         userPassword = findViewById(R.id.user_password);
         userCPassword = findViewById(R.id.user_cpassword);
+        userHeight = findViewById(R.id.et_height);
+        userWeight = findViewById(R.id.et_weight);
+        genderMale = findViewById(R.id.g_male);
+        genderFemale = findViewById(R.id.g_female);
         loadingProgress = findViewById(R.id.reg_progress_bar);
         regBtn = findViewById(R.id.reg_btn);
         loadingProgress.setVisibility(View.INVISIBLE);
@@ -60,6 +70,7 @@ public class RegActivity extends AppCompatActivity {
         login_btn = findViewById(R.id.tv_login_btn);
 
         mAuth = FirebaseAuth.getInstance();
+        userDBRef = FirebaseDatabase.getInstance().getReference("Users");
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,8 +84,6 @@ public class RegActivity extends AppCompatActivity {
             public void onClick(View v) {
                 primaryLayout1.setVisibility(View.INVISIBLE);
                 primaryLayout2.setVisibility(View.VISIBLE);
-
-
             }
         });
 
@@ -87,63 +96,57 @@ public class RegActivity extends AppCompatActivity {
                 final String email = userEmail.getText().toString();
                 final String password = userPassword.getText().toString();
                 final String cpassword = userCPassword.getText().toString();
+                final String user_height = userHeight.getText().toString();
+                final String user_weight = userWeight.getText().toString();
 
-                if(name.isEmpty() || email.isEmpty() || password.isEmpty() || cpassword.isEmpty())
+                if(genderMale.isChecked())
+                {
+                    gender = "Male";
+                }
+                if(genderFemale.isChecked())
+                {
+                    gender = "Female";
+                }
+                if(name.isEmpty() || email.isEmpty() || password.isEmpty() || cpassword.isEmpty() || user_height.isEmpty() || user_weight.isEmpty())
                 {
                     showDialogue("Please check all the fields");
                     regBtn.setVisibility(View.VISIBLE);
                     loadingProgress.setVisibility(View.INVISIBLE);
                 }
 
-                else
-                {
-                    createUserAccount(name, email, password);
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(RegActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
 
-                }
+                                    users info = new users(
+                                            name, email, gender, user_height, user_weight
+                                    );
+                                    FirebaseDatabase.getInstance().getReference("Users")
+                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                            .setValue(info).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            showDialogue("Registration Completed");
+                                            updateUI();
+                                        }
+                                    });
+
+
+                                } else {
+
+                                }
+
+                                // ...
+                            }
+                        });
 
             }
         });
 
     }
 
-    private void createUserAccount(final String name, String email, String password)
-    {
-        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful())
-                {
-                    showDialogue("Account Created Successfully");
-                    updateUserInfo(name, mAuth.getCurrentUser());
-
-                }
-                else
-                {
-                    showDialogue("Account Creation Failed!" + task.getException().getMessage());
-                    regBtn.setVisibility(View.VISIBLE);
-                    loadingProgress.setVisibility(View.INVISIBLE);
-                }
-            }
-        });
-
-    }
-
-
-    private void updateUserInfo(final String name, final FirebaseUser currentUser)
-    {
-        UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder()
-                .setDisplayName(name)
-                .build();
-        currentUser.updateProfile(profileUpdate).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    showDialogue("Registration Completed!");
-                    updateUI();
-                }
-            }
-        });
-    }
 
     private void updateUI()
     {
@@ -156,6 +159,5 @@ public class RegActivity extends AppCompatActivity {
     {
         Toast.makeText(getApplicationContext(),message, Toast.LENGTH_LONG).show();
     }
-
 
 }
