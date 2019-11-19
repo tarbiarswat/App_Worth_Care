@@ -6,29 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".RegActivity">
 
+
     <ImageView
         android:id="@+id/vec_login_topleft"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginEnd="284dp"
+        android:layout_marginEnd="244dp"
         android:src="@drawable/vec_login_topleft"
         app:layout_constraintBottom_toTopOf="@+id/vec_login_middle"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/ic_loginhelp"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_loginhelp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/vec_login_topleft"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.066" />
 
     <ImageView
         android:id="@+id/vec_login_middle"
@@ -37,9 +25,10 @@
         android:src="@drawable/vec_login_middle"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ic_loginhelp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.787" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
