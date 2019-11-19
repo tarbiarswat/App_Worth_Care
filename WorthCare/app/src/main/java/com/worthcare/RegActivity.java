@@ -1,9 +1,5 @@
 package com.worthcare;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,9 +15,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class RegActivity extends AppCompatActivity {
 
@@ -43,7 +42,7 @@ public class RegActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            startActivity(new Intent(RegActivity.this, Dashboard.class));
+            startActivity(new Intent(RegActivity.this, NavDrawer.class));
             updateUI();
         }
     }
@@ -150,8 +149,8 @@ public class RegActivity extends AppCompatActivity {
 
     private void updateUI()
     {
-        Intent Dashboard = new Intent(getApplicationContext(), Dashboard.class);
-        startActivity(Dashboard);
+        Intent NavDrawer = new Intent(getApplicationContext(), NavDrawer.class);
+        startActivity(NavDrawer);
         finish();
     }
 
