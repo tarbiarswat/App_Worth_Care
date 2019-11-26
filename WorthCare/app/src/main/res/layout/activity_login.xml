@@ -108,12 +108,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_semibold"
         android:text="OR"
         android:textColor="#656565"
         app:layout_constraintEnd_toEndOf="@+id/login_btn"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/login_btn"
         app:layout_constraintTop_toBottomOf="@+id/login_btn" />
 
@@ -121,19 +120,22 @@
         android:id="@+id/login_fb_btn"
         android:layout_width="300dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="64dp"
-        android:background="@drawable/button_rounded"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_rounded_fb_login"
         android:fontFamily="@font/montserrat_semibold"
         android:text="Continue with facebook"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:textSize="14sp"
+        android:drawableLeft="@drawable/ic_facebook"
+        android:paddingLeft="25dp"
+        android:drawablePadding="-10dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toEndOf="@+id/login_btn"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/login_btn"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.842" />
+        app:layout_constraintVertical_bias="0.016" />
 
     <TextView
         android:id="@+id/forgot_password_btn"

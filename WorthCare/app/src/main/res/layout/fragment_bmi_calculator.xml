@@ -2,14 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGrey">
+    android:background="@color/colorLightGrey">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to BMI Calculator"
-        android:textSize="24dp"
-        android:textColor="@color/colorSemiLightBlack"
-        android:layout_centerInParent="true"/>
+
 
 </RelativeLayout>
