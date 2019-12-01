@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.luseen.spacenavigation.SpaceNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -18,6 +19,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 public class NavDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawer;
     private FirebaseAuth mAuth;
+    SpaceNavigationView navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +49,7 @@ public class NavDrawer extends AppCompatActivity implements NavigationView.OnNav
         switch (menuItem.getItemId())
         {
             case R.id.nav_medicine_reminder:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new MedicineReminderFragment()).commit();
+                startActivity(new Intent(NavDrawer.this, MainActivity.class));
                 break;
             case R.id.nav_consultation:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

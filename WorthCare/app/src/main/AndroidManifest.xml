@@ -11,11 +11,15 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Dashboard"
-            android:theme="@style/AppTheme.NoActionBar"> </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".EditWorkAct"/>
+        <activity android:name=".StartWorkAct" />
+        <activity android:name=".WorkoutAct" />
+        <activity android:name=".MainActivity"/>
         <activity
             android:name=".NavDrawer"
             android:label="Dashboard"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -31,6 +35,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
     </application>
 
 </manifest>
