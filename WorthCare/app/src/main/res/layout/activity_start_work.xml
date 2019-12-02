@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context=".MainActivity">
+    tools:context=".WorkoutStartActivity">
 
     <LinearLayout
         android:id="@+id/fitone"
@@ -37,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:text="Legs Day"
                 android:textColor="#FFFFFF"
+                android:fontFamily="@font/montserrat_medium"
                 android:textSize="20sp" />
 
             <TextView
@@ -45,7 +46,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="4 to 5 Minutes"
-                android:textColor="#4C5067"
+                android:textColor="#FFFB00"
+                android:fontFamily="@font/montserrat_medium"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -61,6 +63,7 @@
         android:lineSpacingExtra="8dp"
         android:text="How-to"
         android:textColor="#FFFFFF"
+        android:fontFamily="@font/montserrat_medium"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fitone" />
@@ -73,7 +76,8 @@
         android:layout_marginTop="8dp"
         android:lineSpacingExtra="8dp"
         android:text="Simply the text of content will be published with UX design"
-        android:textColor="#4C5067"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="@font/montserrat_medium"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intropage" />

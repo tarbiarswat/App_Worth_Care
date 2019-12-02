@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "357401338074-jmc9oq6cagqukii7ct2unlvnj6mc0hot.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.worthcare",
+            "certificate_hash": "e679f496b2455405a9765515348f35da4580e0e5"
+          }
+        },
+        {
           "client_id": "357401338074-3ma60j4dhd3a5i6id8jr7r3231qig1cp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

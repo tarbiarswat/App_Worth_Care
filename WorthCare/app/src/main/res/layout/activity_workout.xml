@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    tools:context=".MainActivity">
+    tools:context=".WorkoutStartActivity">
 
     <TextView
         android:id="@+id/titlepage"
@@ -16,6 +16,7 @@
         android:lineSpacingExtra="8dp"
         android:text="Body Shapes"
         android:textColor="#FFFFFF"
+        android:fontFamily="@font/montserrat_medium"
         android:textSize="36sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +29,8 @@
         android:layout_marginTop="8dp"
         android:lineSpacingExtra="8dp"
         android:text="All Levels Beginners"
-        android:textColor="#4C5067"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="@font/montserrat_medium"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titlepage" />
@@ -54,6 +56,7 @@
         android:lineSpacingExtra="8dp"
         android:text="Introduction"
         android:textColor="#FFFFFF"
+        android:fontFamily="@font/montserrat_medium"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divpage" />
@@ -66,7 +69,8 @@
         android:layout_marginTop="8dp"
         android:lineSpacingExtra="8dp"
         android:text="The text dummy could help anyone \nto design faster and better."
-        android:textColor="#4C5067"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="@font/montserrat_medium"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intropage" />
@@ -110,7 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4 to 5 Minutes"
-                android:textColor="#4C5067"
+                android:textColor="@color/colorWhite"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -156,7 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="4 to 5 Minutes"
-                android:textColor="#4C5067"
+                android:textColor="@color/colorWhite"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -202,7 +206,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="4 to 5 Minutes"
-                android:textColor="#4C5067"
+                android:textColor="@color/colorWhite"
                 android:textSize="16sp" />
 
         </LinearLayout>
@@ -248,7 +252,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:text="4 to 5 Minutes"
-                android:textColor="#4C5067"
+                android:textColor="@color/colorWhite"
                 android:textSize="16sp" />
 
         </LinearLayout>

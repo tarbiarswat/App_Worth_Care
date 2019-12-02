@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.luseen.spacenavigation.SpaceNavigationView;
+import com.worthcare.activities.MainActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -16,7 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-public class NavDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class NavDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     private FirebaseAuth mAuth;
     SpaceNavigationView navigationView;
@@ -46,18 +47,17 @@ public class NavDrawer extends AppCompatActivity implements NavigationView.OnNav
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId())
-        {
+        switch (menuItem.getItemId()) {
             case R.id.nav_medicine_reminder:
                 startActivity(new Intent(NavDrawer.this, MainActivity.class));
+
                 break;
             case R.id.nav_consultation:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new ConsultationFragment()).commit();
                 break;
             case R.id.nav_bmi_calculator:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new BmiCalculatorFragment()).commit();
+                startActivity(new Intent(NavDrawer.this, WorkoutStartActivity.class));
                 break;
             case R.id.nav_medicine_directory:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -99,8 +99,8 @@ public class NavDrawer extends AppCompatActivity implements NavigationView.OnNav
         }
 
     }
-    private void showDialogue(String message)
-    {
-        Toast.makeText(getApplicationContext(),message, Toast.LENGTH_LONG).show();
+
+    private void showDialogue(String message) {
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 }

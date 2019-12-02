@@ -2,30 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.worthcare">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:fullBackupContent="@xml/backup_scheme"
+        android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Dashboard"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".EditWorkAct"/>
-        <activity android:name=".StartWorkAct" />
-        <activity android:name=".WorkoutAct" />
-        <activity android:name=".MainActivity"/>
-        <activity
-            android:name=".NavDrawer"
-            android:label="Dashboard"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".RegActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".WorkoutStartActivity"></activity>
         <activity
             android:name=".splash"
             android:theme="@style/AppTheme.NoActionBar">
@@ -35,9 +23,73 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RegActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NavDrawer"
+            android:label="Dashboard"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.CreateEditActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppThemeLight" />
+        <activity
+            android:name=".activities.ViewActivity"
+            android:theme="@style/AppThemeLight" />
+        <activity
+            android:name=".activities.SnoozeDialogActivity"
+            android:excludeFromRecents="true"
+            android:taskAffinity=""
+            android:theme="@style/AppThemeTransparent" />
+        <activity
+            android:name=".activities.shortcut.CreateEditShortcut"
+            android:configChanges="orientation|screenSize"
+            android:excludeFromRecents="true"
+            android:taskAffinity=""
+            android:theme="@style/AppThemeDialog">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.shortcut.ShortcutActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".EditWorkAct"/>
+        <activity android:name=".StartWorkAct" />
+        <activity android:name=".WorkoutAct" />
+        <activity android:name=".WorkoutStartActivity"/>
 
+        <receiver android:name=".receivers.AlarmReceiver" />
+        <receiver android:name=".receivers.SnoozeActionReceiver" />
+        <receiver android:name=".receivers.SnoozeReceiver" />
+        <receiver android:name=".receivers.DismissReceiver" />
+        <receiver android:name=".receivers.NagReceiver" />
+        <receiver
+            android:name=".receivers.BootReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
