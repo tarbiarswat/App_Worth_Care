@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class WorkoutStartActivity extends AppCompatActivity {
 
     TextView titlepage, subtitlepage, btnexercise;
     ImageView imgpage;
@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_workout_start);
 
         // load animation
         animimgpage = AnimationUtils.loadAnimation(this, R.anim.animimgpage);
@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
         bgprogresstop = (View) findViewById(R.id.bgprogresstop);
 
         // customize font
-        titlepage.setTypeface(Vidaloka);
-        subtitlepage.setTypeface(MLight);
         btnexercise.setTypeface(MMedium);
 
         // export animate
@@ -60,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         btnexercise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent a = new Intent(MainActivity.this,WorkoutAct.class);
+                Intent a = new Intent(WorkoutStartActivity.this,WorkoutAct.class);
                 a.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(a);
             }
