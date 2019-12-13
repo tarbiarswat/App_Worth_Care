@@ -4,7 +4,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:colorBackground">@color/background</item>
         <item name="android:windowTitleSize">?attr/actionBarSize</item>
         <item name="android:windowTitleStyle">@style/CustomWindowTitle</item>
         <item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
@@ -25,6 +26,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:colorBackground">@color/background</item>
         <item name="android:dividerHeight">@dimen/line_separator_height</item>
         <item name="android:dialogTheme">@style/Dialog</item>
         <item name="actionOverflowButtonStyle">@style/OverFlow</item>
@@ -34,6 +37,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:colorBackground">@android:color/white</item>
         <item name="android:dialogTheme">@style/Dialog</item>
         <item name="actionOverflowButtonStyle">@style/OverFlow</item>
     </style>
@@ -84,16 +89,5 @@
     </style>
     <style name="TitleEditText">
         <item name="colorControlNormal">#d2d2d2</item>
-    </style>
-
-
-
-    <style name="AppTabLayout" parent="Widget.Design.TabLayout">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-    <style name="AppTabTextAppearance" parent="TextAppearance.Design.Tab">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
 </resources>

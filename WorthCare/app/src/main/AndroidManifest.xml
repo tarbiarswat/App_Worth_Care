@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.worthcare">
-
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
@@ -54,35 +54,11 @@
             android:excludeFromRecents="true"
             android:taskAffinity=""
             android:theme="@style/AppThemeTransparent" />
-        <activity
-            android:name=".activities.shortcut.CreateEditShortcut"
-            android:configChanges="orientation|screenSize"
-            android:excludeFromRecents="true"
-            android:taskAffinity=""
-            android:theme="@style/AppThemeDialog">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activities.shortcut.ShortcutActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.CREATE_SHORTCUT" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
         <activity android:name=".EditWorkAct"/>
         <activity android:name=".StartWorkAct" />
         <activity android:name=".WorkoutAct" />
         <activity android:name=".WorkoutStartActivity"/>
-
-        <activity
-            android:name="com.worthcare.bmicalculator.BmiSplashActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".bmicalculator.BmiMainActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".bmicalculator.BmiIntroActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
             android:name=".ultravoicecompanion.UltraMainActivity"

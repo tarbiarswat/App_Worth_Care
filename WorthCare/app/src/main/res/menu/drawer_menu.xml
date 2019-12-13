@@ -21,6 +21,10 @@
             android:icon="@drawable/ic_medicine_directory"
             android:title="Medicine Directory" />
         <item
+            android:id="@+id/nav_workout"
+            android:icon="@drawable/ic_workout"
+            android:title="Workout Trainer" />
+        <item
             android:id="@+id/nav_notifications"
             android:icon="@drawable/ic_notification"
             android:title="Notifications" />

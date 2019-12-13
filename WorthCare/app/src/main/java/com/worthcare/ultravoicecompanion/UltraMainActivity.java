@@ -41,9 +41,9 @@ public class UltraMainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        fab.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View view) {
+            public boolean onLongClick(View view) {
                 // Here, thisActivity is the current activity
                 if (ContextCompat.checkSelfPermission(UltraMainActivity.this,
                         Manifest.permission.RECORD_AUDIO)
@@ -72,6 +72,7 @@ public class UltraMainActivity extends AppCompatActivity {
                     intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS,1);
                     speechRecog.startListening(intent);
                 }
+            return false;
             }
         });
         
@@ -143,17 +144,28 @@ public class UltraMainActivity extends AppCompatActivity {
 //        Fourth: Open a browser and open url
         if(result_message.indexOf("what") != -1){
             if(result_message.indexOf("your name") != -1){
-                speak("My Name is Mr.Android. Nice to meet you!");
+                speak("My Name is Ultra. Nice to meet you!");
             }
             if (result_message.indexOf("time") != -1){
                 String time_now = DateUtils.formatDateTime(this, new Date().getTime(),DateUtils.FORMAT_SHOW_TIME);
                 speak("The time is now: " + time_now);
             }
-        } else if (result_message.indexOf("earth") != -1){
+            if (result_message.indexOf("slang") != -1){
+                String time_now = DateUtils.formatDateTime(this, new Date().getTime(),DateUtils.FORMAT_SHOW_TIME);
+                speak("No, I'm just your voice companion, not your crime partner");
+            }
+        }
+        else if (result_message.indexOf("earth") != -1)
+        {
             speak("Don't be silly, The earth is a sphere. As are all other planets and celestial bodies");
-        } else if (result_message.indexOf("browser") != -1){
+        }
+        else if (result_message.indexOf("fever") != -1)
+        {
+            speak("Ace Plus and Napa can be your help, try it.");
+        }
+        else if (result_message.indexOf("browser") != -1){
             speak("Opening a browser right away master.");
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/AnNJPf-4T70"));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com"));
             startActivity(intent);
         }
     }
