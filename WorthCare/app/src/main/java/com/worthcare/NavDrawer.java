@@ -9,6 +9,8 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.luseen.spacenavigation.SpaceNavigationView;
 import com.worthcare.activities.MainActivity;
+import com.worthcare.bmicalculator.BmiSplashActivity;
+import com.worthcare.ultravoicecompanion.UltraMainActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -53,11 +55,10 @@ public class NavDrawer extends AppCompatActivity implements NavigationView.OnNav
 
                 break;
             case R.id.nav_consultation:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new ConsultationFragment()).commit();
+                startActivity(new Intent(NavDrawer.this, UltraMainActivity.class));
                 break;
             case R.id.nav_bmi_calculator:
-                startActivity(new Intent(NavDrawer.this, WorkoutStartActivity.class));
+                startActivity(new Intent(NavDrawer.this, BmiSplashActivity.class));
                 break;
             case R.id.nav_medicine_directory:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

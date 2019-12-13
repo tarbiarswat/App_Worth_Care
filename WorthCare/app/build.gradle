@@ -53,4 +53,7 @@ dependencies {
 
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
 
+    implementation 'com.github.paolorotolo:appintro:4.1.0'
+
+
 }

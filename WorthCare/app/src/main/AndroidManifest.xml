@@ -76,6 +76,19 @@
         <activity android:name=".WorkoutAct" />
         <activity android:name=".WorkoutStartActivity"/>
 
+        <activity
+            android:name="com.worthcare.bmicalculator.BmiSplashActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".bmicalculator.BmiMainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".bmicalculator.BmiIntroActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".ultravoicecompanion.UltraMainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <receiver android:name=".receivers.AlarmReceiver" />
         <receiver android:name=".receivers.SnoozeActionReceiver" />
         <receiver android:name=".receivers.SnoozeReceiver" />
