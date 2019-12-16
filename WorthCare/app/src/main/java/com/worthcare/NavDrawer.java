@@ -7,7 +7,9 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.luseen.spacenavigation.SpaceItem;
 import com.luseen.spacenavigation.SpaceNavigationView;
+import com.luseen.spacenavigation.SpaceOnClickListener;
 import com.worthcare.activities.MainActivity;
 import com.worthcare.ultravoicecompanion.UltraMainActivity;
 
@@ -21,13 +23,40 @@ import androidx.drawerlayout.widget.DrawerLayout;
 public class NavDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     private FirebaseAuth mAuth;
-    SpaceNavigationView navigationView;
+    SpaceNavigationView navigationview;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navdrawer);
+
+        navigationview = findViewById(R.id.space);
+        navigationview.initWithSaveInstanceState(savedInstanceState);
+
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_settings));
+
+        navigationview.setSpaceOnClickListener(new SpaceOnClickListener() {
+            @Override
+            public void onCentreButtonClick() {
+                startActivity(new Intent(NavDrawer.this, UltraMainActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+
+            @Override
+            public void onItemClick(int itemIndex, String itemName) {
+                Toast.makeText(NavDrawer.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemReselected(int itemIndex, String itemName) {
+                Toast.makeText(NavDrawer.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -60,8 +89,7 @@ public class NavDrawer extends AppCompatActivity implements NavigationView.OnNav
 
                 break;
             case R.id.nav_medicine_directory:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new MedicineDirectoryFragment()).commit();
+                startActivity(new Intent(NavDrawer.this, MedicineSearchActivity.class));
                 break;
             case R.id.nav_workout:
                 startActivity(new Intent(NavDrawer.this, WorkoutStartActivity.class));
