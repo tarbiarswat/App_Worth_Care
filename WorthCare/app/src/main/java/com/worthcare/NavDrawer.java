@@ -86,7 +86,7 @@ public class NavDrawer extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(new Intent(NavDrawer.this, UltraMainActivity.class));
                 break;
             case R.id.nav_bmi_calculator:
-
+                startActivity(new Intent(NavDrawer.this, BmiMainActivity.class));
                 break;
             case R.id.nav_medicine_directory:
                 startActivity(new Intent(NavDrawer.this, MedicineSearchActivity.class));

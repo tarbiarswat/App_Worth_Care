@@ -90,4 +90,10 @@
     <style name="TitleEditText">
         <item name="colorControlNormal">#d2d2d2</item>
     </style>
+
+    <style name="AppTheme.MaterialAboutActivity.Fragment" parent="Theme.Mal.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
 </resources>
