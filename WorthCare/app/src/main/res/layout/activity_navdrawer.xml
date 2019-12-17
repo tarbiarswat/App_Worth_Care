@@ -26,7 +26,8 @@
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/colorGrey">
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -37,11 +38,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    app:active_item_color="@color/colorAccent"
-                    app:centre_button_color="@color/centre_button_color"
+                    app:active_item_color="@color/colorPrimaryDark"
+                    app:centre_button_color="@color/colorPrimaryDark"
                     app:centre_button_icon="@drawable/ic_logout"
-                    app:inactive_item_color="@color/white"
-                    app:space_background_color="@color/colorPrimary"
+                    app:inactive_item_color="@color/colorBlack"
+                    app:space_background_color="@color/colorWhite"
                     app:space_item_icon_only_size="@dimen/space_item_icon_only_size"
                     app:space_item_icon_size="@dimen/space_item_icon_default_size"
                     app:space_item_text_size="@dimen/space_item_text_default_size" />

@@ -6,6 +6,8 @@
     <color name="colorSemiLightBlack">#202020</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorLightGrey">#EEEEEE</color>
+    <color name="colorGrey">#C0C0C0</color>
+    <color name="colordarkGrey">#2B2B2B</color>
 
     <color name="accentLight">#FFD54F</color>
     <color name="background">#eeeeee</color>
