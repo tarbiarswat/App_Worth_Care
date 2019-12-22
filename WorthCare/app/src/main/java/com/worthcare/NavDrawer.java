@@ -26,10 +26,13 @@ public class NavDrawer extends AppCompatActivity implements NavigationView.OnNav
     SpaceNavigationView navigationview;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navdrawer);
+
+
 
         navigationview = findViewById(R.id.space);
         navigationview.initWithSaveInstanceState(savedInstanceState);
