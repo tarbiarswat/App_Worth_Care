@@ -28,7 +28,11 @@
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+<<<<<<< HEAD
             android:background="@color/colorLightGrey">
+=======
+            android:background="@color/colorGrey">
+>>>>>>> 02109ec4339c561997852c7b21dd2e6f292f5585
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -226,7 +230,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
+<<<<<<< HEAD
                     app:active_item_color="@color/colorAccent"
+=======
+                    app:active_item_color="@color/colorPrimaryDark"
+>>>>>>> 02109ec4339c561997852c7b21dd2e6f292f5585
                     app:centre_button_color="@color/colorPrimaryDark"
                     app:centre_button_icon="@drawable/ic_logout"
                     app:inactive_item_color="@color/colorBlack"
