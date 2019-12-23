@@ -84,9 +84,9 @@ public class UltraMainActivity extends AppCompatActivity {
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnLongClickListener(new View.OnLongClickListener() {
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View view) {
+            public void onClick(View view) {
                 // Here, thisActivity is the current activity
                 if (ContextCompat.checkSelfPermission(UltraMainActivity.this,
                         Manifest.permission.RECORD_AUDIO)
@@ -115,7 +115,6 @@ public class UltraMainActivity extends AppCompatActivity {
                     intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS,1);
                     speechRecog.startListening(intent);
                 }
-            return false;
             }
         });
         
