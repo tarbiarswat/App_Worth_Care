@@ -48,10 +48,10 @@ public class NavDrawer extends AppCompatActivity implements NavigationView.OnNav
         navigationview = findViewById(R.id.space);
         navigationview.initWithSaveInstanceState(savedInstanceState);
 
-        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
-        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
-        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
-        navigationview.addSpaceItem(new SpaceItem("S", R.drawable.ic_settings));
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_avatar));
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_bmi_calculator));
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_medicine_reminder));
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_settings));
 
         navigationview.setSpaceOnClickListener(new SpaceOnClickListener() {
             @Override
@@ -94,35 +94,40 @@ public class NavDrawer extends AppCompatActivity implements NavigationView.OnNav
         switch (menuItem.getItemId()) {
             case R.id.nav_medicine_reminder:
                 startActivity(new Intent(NavDrawer.this, MainActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 
                 break;
             case R.id.nav_consultation:
                 startActivity(new Intent(NavDrawer.this, UltraMainActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
             case R.id.nav_bmi_calculator:
                 startActivity(new Intent(NavDrawer.this, BmiMainActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
             case R.id.nav_medicine_directory:
                 startActivity(new Intent(NavDrawer.this, MedicineDirectory.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
             case R.id.nav_workout:
                 startActivity(new Intent(NavDrawer.this, WorkoutStartActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
             case R.id.nav_notifications:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new NotificationsFragment()).commit();
                 break;
             case R.id.nav_profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new ProfileFragment()).commit();
+                startActivity(new Intent(NavDrawer.this, ProfileActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
             case R.id.nav_settings:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new SettingsFragment()).commit();
                 break;
             case R.id.nav_privacy_policy:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new PrivacyPolicyFragment()).commit();
+                startActivity(new Intent(NavDrawer.this, PrivacyPolicy.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 break;
             case R.id.nav_logout:
                 FirebaseAuth.getInstance().signOut();

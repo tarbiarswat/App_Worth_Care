@@ -69,7 +69,7 @@
                     android:layout_alignParentBottom="true"
                     app:active_item_color="@color/colorPrimaryDark"
                     app:centre_button_color="@color/colorPrimaryDark"
-                    app:centre_button_icon="@drawable/ic_logout"
+                    app:centre_button_icon="@drawable/ic_smile"
                     app:inactive_item_color="@color/colorBlack"
                     app:space_background_color="@color/colorWhite"
                     app:space_item_icon_only_size="@dimen/space_item_icon_only_size"
