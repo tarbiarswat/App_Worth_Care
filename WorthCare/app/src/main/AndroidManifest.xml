@@ -18,7 +18,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".MedicineDirectory"></activity>
+        <activity android:name=".PrivacyPolicy"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".MedicineDirectory" />
         <activity android:name=".BmiMainActivity" />
         <activity
             android:name=".AboutActivity"

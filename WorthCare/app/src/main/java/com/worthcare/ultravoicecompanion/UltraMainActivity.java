@@ -59,9 +59,9 @@ public class UltraMainActivity extends AppCompatActivity {
         navigationview = findViewById(R.id.space);
         navigationview.initWithSaveInstanceState(savedInstanceState);
 
-        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
-        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
-        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_avatar));
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_bmi_calculator));
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_medicine_reminder));
         navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_settings));
 
         navigationview.setSpaceOnClickListener(new SpaceOnClickListener() {
