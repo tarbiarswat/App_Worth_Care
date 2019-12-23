@@ -3,6 +3,9 @@ package com.worthcare;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -24,6 +27,7 @@ public class NavDrawer extends AppCompatActivity implements NavigationView.OnNav
     private DrawerLayout drawer;
     private FirebaseAuth mAuth;
     SpaceNavigationView navigationview;
+    private WebView webView;
 
 
 
@@ -31,6 +35,13 @@ public class NavDrawer extends AppCompatActivity implements NavigationView.OnNav
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navdrawer);
+
+        webView = (WebView) findViewById(R.id.webview);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://www.chinton.org/");
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
 
 
 
@@ -40,7 +51,7 @@ public class NavDrawer extends AppCompatActivity implements NavigationView.OnNav
         navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
         navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
         navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
-        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_settings));
+        navigationview.addSpaceItem(new SpaceItem("S", R.drawable.ic_settings));
 
         navigationview.setSpaceOnClickListener(new SpaceOnClickListener() {
             @Override
@@ -92,7 +103,7 @@ public class NavDrawer extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(new Intent(NavDrawer.this, BmiMainActivity.class));
                 break;
             case R.id.nav_medicine_directory:
-                startActivity(new Intent(NavDrawer.this, MedicineSearchActivity.class));
+                startActivity(new Intent(NavDrawer.this, MedicineDirectory.class));
                 break;
             case R.id.nav_workout:
                 startActivity(new Intent(NavDrawer.this, WorkoutStartActivity.class));
