@@ -14,6 +14,9 @@ import android.text.format.DateUtils;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,6 +25,10 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.luseen.spacenavigation.SpaceItem;
+import com.luseen.spacenavigation.SpaceNavigationView;
+import com.luseen.spacenavigation.SpaceOnClickListener;
+import com.worthcare.NavDrawer;
 import com.worthcare.R;
 
 import java.util.Date;
@@ -32,6 +39,8 @@ public class UltraMainActivity extends AppCompatActivity {
     private static final int MY_PERMISSIONS_REQUEST_RECORD_AUDIO = 1;
     private TextToSpeech tts;
     private SpeechRecognizer speechRecog;
+    private WebView webView;
+    SpaceNavigationView navigationview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +48,40 @@ public class UltraMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_ultra);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        webView = (WebView) findViewById(R.id.webview);
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://www.tidio.com/talk/qvqptet7grzno08wexdmlhlbao5xskjg");
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
+        navigationview = findViewById(R.id.space);
+        navigationview.initWithSaveInstanceState(savedInstanceState);
+
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_heart));
+        navigationview.addSpaceItem(new SpaceItem("", R.drawable.ic_settings));
+
+        navigationview.setSpaceOnClickListener(new SpaceOnClickListener() {
+            @Override
+            public void onCentreButtonClick() {
+                startActivity(new Intent(UltraMainActivity.this, NavDrawer.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+
+            @Override
+            public void onItemClick(int itemIndex, String itemName) {
+                Toast.makeText(UltraMainActivity.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemReselected(int itemIndex, String itemName) {
+                Toast.makeText(UltraMainActivity.this, itemIndex + " " + itemName, Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnLongClickListener(new View.OnLongClickListener() {
@@ -78,6 +121,15 @@ public class UltraMainActivity extends AppCompatActivity {
         
         initializeTextToSpeech();
         initializeSpeechRecognizer();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
     }
 
     private void initializeSpeechRecognizer() {

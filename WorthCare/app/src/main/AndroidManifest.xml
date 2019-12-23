@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.worthcare">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -15,15 +16,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-
-
-        <activity android:name=".BmiMainActivity"></activity>
+        <activity android:name=".MedicineDirectory"></activity>
+        <activity android:name=".BmiMainActivity" />
         <activity
             android:name=".AboutActivity"
             android:label="@string/action_about"
             android:parentActivityName=".BmiMainActivity" />
-
         <activity android:name=".MedicineSearchActivity" />
         <activity
             android:name=".splash"
